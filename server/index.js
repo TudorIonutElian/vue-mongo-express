@@ -15,6 +15,9 @@ const produseRoutes = require('./routes/api/produse');
 
 
 app.use('/api/produse', produseRoutes);
+app.get('/', (req, res) => {
+    res.send('Hello');
+});
 
 // Definire port pentru server
 const port = 3000;
