@@ -14,6 +14,7 @@ app.use(cors());
 const produseRoutes = require('./routes/api/produse');
 const categoriiRoutes = require('./routes/api/categorii');
 const retururiRoutes = require('./routes/api/retururi');
+const vanzariRoutes = require('./routes/api/vanzari');
 
 // Conectare la cluster
 try {
@@ -27,6 +28,7 @@ try {
 app.use('/api/produse', produseRoutes);
 app.use('/api/categorii', categoriiRoutes);
 app.use('/api/retururi', retururiRoutes);
+app.use('/api/retururi', vanzariRoutes);
 
 
 app.get('/', (req, res) => {
