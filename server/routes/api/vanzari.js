@@ -16,9 +16,9 @@ router.get('/', async(req, res) => {
 
 router.get(`/:id`, async(req, res) => {
     try {
-        let returData = null;
-        await retur.findById(req.params.id).then(data => returData = data);
-        res.json(returData);
+        let vanzareData = null;
+        await vanzare.findById(req.params.id).then(data => vanzareData = data);
+        res.json(vanzareData);
     } catch (error) {
         console.log({ message: error });
     }

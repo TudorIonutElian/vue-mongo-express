@@ -35,8 +35,13 @@ app.get('/', (req, res) => {
     res.send('Hello');
 });
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(__dirname + '/public/'));
+    app.get('/.*/', () => res.sendFile(__dirname + '/public/index.html'));
+}
+
 // Definire port pentru server
-const port = 3000;
+const port = 5000;
 
 // Start Server
 
