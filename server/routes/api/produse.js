@@ -5,7 +5,9 @@ const router = express.Router();
 
 router.get('/', async(req, res) => {
     try {
-        res.json({ message: "Superb" });
+        let produseReturnate = null;
+        await produs.find({}).then(data => produseReturnate = data);
+        res.json(produseReturnate);
     } catch (error) {
         console.log({ message: error });
     }
