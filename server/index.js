@@ -31,10 +31,6 @@ app.use('/api/retururi', retururiRoutes);
 app.use('/api/vanzari', vanzariRoutes);
 
 
-app.get('/', (req, res) => {
-    res.send('Hello');
-});
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(__dirname + '/public/'));
     app.get('/.*/', () => res.sendFile(__dirname + '/public/index.html'));
