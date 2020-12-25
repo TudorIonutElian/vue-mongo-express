@@ -1,20 +1,27 @@
 const express = require('express');
-//const categorii = require('../models/Produs');
+const categorii = require('../../../models/Categorie');
 const router = express.Router();
 
 // Preluare toate categoriile
 router.get('/', async(req, res) => {
     try {
-
+        let categoriiAll = null;
+        await categorii.find({}).then(data => categoriiAll = data);
+        res.json(categoriiAll);
     } catch (error) {
         console.log({ message: error });
     }
-
 });
 
 // Preluare categorie dupa ID
 router.get(`/:id`, async(req, res) => {
-
+    try {
+        let categorieReturnata = null;
+        await categorii.findById(req.params.id).then(data => categorieReturnata = data);
+        res.json(categorieReturnata);
+    } catch (error) {
+        console.log({ message: error });
+    }
 });
 
 // Adaugare categorie

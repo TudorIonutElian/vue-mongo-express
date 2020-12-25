@@ -15,7 +15,13 @@ router.get('/', async(req, res) => {
 });
 
 router.get(`/:id`, async(req, res) => {
-
+    try {
+        let produsReturnat = null;
+        await produs.findById(req.params.id).then(data => produsReturnat = data);
+        res.json(produsReturnat);
+    } catch (error) {
+        console.log({ message: error });
+    }
 });
 
 router.post(`/`, (req, res) => {

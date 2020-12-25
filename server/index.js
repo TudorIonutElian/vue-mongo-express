@@ -12,6 +12,8 @@ app.use(cors());
 
 // Preluare rute din folderul routes
 const produseRoutes = require('./routes/api/produse');
+const categoriiRoutes = require('./routes/api/categorii');
+const retururiRoutes = require('./routes/api/retururi');
 
 // Conectare la cluster
 try {
@@ -23,6 +25,10 @@ try {
 }
 
 app.use('/api/produse', produseRoutes);
+app.use('/api/categorii', categoriiRoutes);
+app.use('/api/retururi', retururiRoutes);
+
+
 app.get('/', (req, res) => {
     res.send('Hello');
 });
