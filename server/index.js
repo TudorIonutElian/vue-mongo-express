@@ -28,7 +28,7 @@ try {
 app.use('/api/produse', produseRoutes);
 app.use('/api/categorii', categoriiRoutes);
 app.use('/api/retururi', retururiRoutes);
-app.use('/api/retururi', vanzariRoutes);
+app.use('/api/vanzari', vanzariRoutes);
 
 
 app.get('/', (req, res) => {
