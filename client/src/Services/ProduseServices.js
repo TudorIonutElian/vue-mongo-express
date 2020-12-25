@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const url = 'http://localhost:3000/api/produse';
+const url = 'http://localhost:5000/api/produse';
 
-class CategoriiServices {
-    static getCategorii() {
+class ProduseServices {
+    static getproduse() {
         return new Promise((resolve, reject) => {
             try {
                 const data = axios.get(url);
@@ -15,4 +15,4 @@ class CategoriiServices {
     }
 }
 
-export default CategoriiServices;
+export default ProduseServices;

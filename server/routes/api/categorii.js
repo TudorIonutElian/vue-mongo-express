@@ -1,4 +1,5 @@
 const express = require('express');
+const Categorie = require('../../../models/Categorie');
 const categorie = require('../../../models/Categorie');
 const router = express.Router();
 
@@ -25,8 +26,22 @@ router.get(`/:id`, async(req, res) => {
 });
 
 // Adaugare categorie
-router.post(`/`, (req, res) => {
-    console.log(req.body);
+router.post(`/`, async(req, res) => {
+    // Creare Categorie Noua
+    const categorieNoua = new Categorie({ titlu: req.body.titlu, descriere: req.body.descriere, dataCreare: new Date });
+
+    // Salvare Categorie Noua
+    categorieNoua.save();
+
+    // Returnare Categorie Noua
+    res.send(categorieNoua);
+});
+
+// Sterge categorie
+router.delete(`/`, async(req, res) => {
+    // Creare Categorie Noua
+    await categorie.findByIdAndDelete(req.body.idCategorie);
+    res.sendStatus(200);
 });
 
 

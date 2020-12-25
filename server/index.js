@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Definire port pentru server
-const port = 5000;
+const port = 3000;
 
 // Start Server
 
