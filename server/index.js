@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const mongoose = require('mongoose');
+require('dotenv/config')
 const cors = require('cors');
 
 const app = express();
@@ -12,7 +13,14 @@ app.use(cors());
 // Preluare rute din folderul routes
 const produseRoutes = require('./routes/api/produse');
 
-
+// Conectare la cluster
+try {
+    mongoose.connect(process.env.DB_STRING, { useNewUrlParser: true }, () => {
+        console.log("Connected");
+    })
+} catch (error) {
+    console.log({ message: error })
+}
 
 app.use('/api/produse', produseRoutes);
 app.get('/', (req, res) => {
@@ -23,4 +31,5 @@ app.get('/', (req, res) => {
 const port = 3000;
 
 // Start Server
+
 app.listen(process.env.PORT || port, () => { console.log(`Server started on: ${port}`) });

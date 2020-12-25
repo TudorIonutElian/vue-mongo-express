@@ -1,5 +1,5 @@
 const express = require('express');
-const categorii = require('../models/Produs');
+//const categorii = require('../models/Produs');
 const router = express.Router();
 
 // Preluare toate categoriile

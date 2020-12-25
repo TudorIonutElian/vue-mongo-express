@@ -1,12 +1,10 @@
 const express = require('express');
-const produs = require('../models/Produs');
+const produs = require('../../../models/Produs');
 const router = express.Router();
 
 
 router.get('/', async(req, res) => {
-    try {
-
-    } catch (error) {
+    try {} catch (error) {
         console.log({ message: error });
     }
 
