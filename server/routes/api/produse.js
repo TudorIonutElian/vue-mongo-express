@@ -4,7 +4,9 @@ const router = express.Router();
 
 
 router.get('/', async(req, res) => {
-    try {} catch (error) {
+    try {
+        res.json({ message: "Superb" });
+    } catch (error) {
         console.log({ message: error });
     }
 
