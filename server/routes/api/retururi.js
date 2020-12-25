@@ -18,7 +18,7 @@ router.get(`/:id`, async(req, res) => {
     try {
         let returData = null;
         await retur.findById(req.params.id).then(data => returData = data);
-        res.json(returData);
+        res.send(returData);
     } catch (error) {
         console.log({ message: error });
     }

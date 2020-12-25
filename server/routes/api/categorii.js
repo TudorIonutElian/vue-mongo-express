@@ -1,12 +1,12 @@
 const express = require('express');
-const categorii = require('../../../models/Categorie');
+const categorie = require('../../../models/Categorie');
 const router = express.Router();
 
 // Preluare toate categoriile
 router.get('/', async(req, res) => {
     try {
         let categoriiAll = null;
-        await categorii.find({}).then(data => categoriiAll = data);
+        await categorie.find({}).then(data => categoriiAll = data);
         res.json(categoriiAll);
     } catch (error) {
         console.log({ message: error });
@@ -17,7 +17,7 @@ router.get('/', async(req, res) => {
 router.get(`/:id`, async(req, res) => {
     try {
         let categorieReturnata = null;
-        await categorii.findById(req.params.id).then(data => categorieReturnata = data);
+        await categorie.findById(req.params.id).then(data => categorieReturnata = data);
         res.json(categorieReturnata);
     } catch (error) {
         console.log({ message: error });
